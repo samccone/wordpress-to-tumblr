@@ -1,0 +1,7 @@
+- if (user)
+  label Upload wordpress XML
+  form( action = "upload", method = "POST", enctype = "multipart/form-data")
+    input(id="fileupload", type="file", name="xml")
+    input(type = "submit")
+- else
+  a(href="/auth") Auth Tumblr

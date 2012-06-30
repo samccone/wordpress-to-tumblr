@@ -1,0 +1,18 @@
+{
+  "author": "Sam Saccone <sam@samx.it> (samsaccone.com)",
+  "name": "wordpress-to-tumblr",
+  "description": "import wordpress xml into a tumblr blog",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "2.5.11",
+    "jade": "latest",
+    "passport": "0.1.10",
+    "passport-tumblr": "0.1.2",
+    "xml2js": "0.1.14"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "0.6.19"
+  }
+}

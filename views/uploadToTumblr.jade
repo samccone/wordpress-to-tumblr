@@ -1,0 +1,16 @@
+h3 Now Lets Import into Tumblr
+  - if ( blogs.length )
+    h4 Which Blog Shall I import into
+    - each blog in blogs
+      input(type = "radio", value = "#{blog.name}", name = "blogChoice", id = "blogchoice_#{blog.name}")
+      label(for = "blogchoice_#{blog.name}")= blog.name
+      br
+    h4 Which Posts Should I import
+    - each post in wordpress.channel.item
+      if (post["wp:post_type"] == "post")
+        if ( typeof(post.title) == "string" )
+          input(id = "blogpost_#{post['wp:post_id']}", type = "checkbox", value="#{post['wp:post_id']}", name = "blogChoice", checked = "checked")
+          label(for = "blogpost_#{post['wp:post_id']}")= post.title
+          br
+  - else
+    h2 Error... you have no blogs yet
