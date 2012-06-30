@@ -62,4 +62,7 @@ webServer.get '/uploadToTumblr', (req, res) ->
   else
     res.redirect '/'
 
+webServer.post '/importToTumblr', (req, res) ->
+  res.render 'uploadingToTumblr'
+
 webServer.listen 9000

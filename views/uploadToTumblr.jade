@@ -1,8 +1,15 @@
 h3 Now Lets Import into Tumblr
-  - if ( blogs.length )
+- if ( blogs.length )
+  form(method = "POST", action="/importToTumblr")
     h4 Which Blog Shall I import into
+    input(name = "wordpress_posts", value = wordpress.channel.item, style = "display:none")
+    - first = true
     - each blog in blogs
-      input(type = "radio", value = "#{blog.name}", name = "blogChoice", id = "blogchoice_#{blog.name}")
+      - if( first )
+        input(type = "radio", value = "#{blog.name}", name = "blogChoice", id = "blogchoice_#{blog.name}", checked = "checked")
+        - first = false
+      - else
+        input(type = "radio", value = "#{blog.name}", name = "blogChoice", id = "blogchoice_#{blog.name}")
       label(for = "blogchoice_#{blog.name}")= blog.name
       br
     h4 Which Posts Should I import
@@ -12,5 +19,6 @@ h3 Now Lets Import into Tumblr
           input(id = "blogpost_#{post['wp:post_id']}", type = "checkbox", value="#{post['wp:post_id']}", name = "blogChoice", checked = "checked")
           label(for = "blogpost_#{post['wp:post_id']}")= post.title
           br
-  - else
-    h2 Error... you have no blogs yet
+    input(type = "submit")
+- else
+  h2 Error... you have no blogs yet
