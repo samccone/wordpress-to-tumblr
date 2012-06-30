@@ -63,6 +63,10 @@ webServer.get '/uploadToTumblr', (req, res) ->
     res.redirect '/'
 
 webServer.post '/importToTumblr', (req, res) ->
+  util.uploadPostsToTumblr
+    wordpress: req.body.wordpress_posts
+    tumblr: req.body.blogChoice
+    imports: req.body.selectedImports
   res.render 'uploadingToTumblr'
 
 webServer.listen 9000

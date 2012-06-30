@@ -8,3 +8,6 @@ exports.readAndParseXml = (filename, cb) ->
     parser.parseString data, (err, data) ->
       if err then throw new Error "Error Parsing File " + err
       cb(data)
+
+exports.uploadPostsToTumblr = (args) ->
+  console.log args
