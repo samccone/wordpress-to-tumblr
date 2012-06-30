@@ -1,0 +1,14 @@
+* post to tumblr
+* upload all img src tags to S3
+
+
+touch keys.js
+  exports.keys = {
+    consumerKey: "????????",
+    consumerSecret: "???????",
+    callbackURL: "http://0.0.0.0:9000/oauth"
+  }
+
+npm install
+coffee -wc .
+node server
