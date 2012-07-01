@@ -26,7 +26,8 @@ passport.deserializeUser (id, done) ->
 
 passport.use new TumblrStrategy(tumblrOptions , (token, tokenSecret, profile, done) ->
   process.nextTick ->
-    profile.token = token
+    profile.token       = token
+    profile.tokenSecret = tokenSecret
     done null, profile
 )
 
@@ -56,6 +57,7 @@ webServer.post '/upload', (req, res) ->
 webServer.get '/uploadToTumblr', (req, res) ->
   if req.user
     util.readAndParseXml req.session.xml, (data) ->
+      req.session.wordpress = data
       res.render 'uploadToTumblr',
         blogs: req.user._json.response.user.blogs
         wordpress: data
@@ -64,9 +66,12 @@ webServer.get '/uploadToTumblr', (req, res) ->
 
 webServer.post '/importToTumblr', (req, res) ->
   util.uploadPostsToTumblr
-    wordpress: req.body.wordpress_posts
+    wordpress: req.session.wordpress
     tumblr: req.body.blogChoice
     imports: req.body.selectedImports
+    token: req.user.token
+    secret: req.user.tokenSecret
   res.render 'uploadingToTumblr'
+
 
 webServer.listen 9000
