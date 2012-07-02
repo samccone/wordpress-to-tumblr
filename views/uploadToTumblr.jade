@@ -16,7 +16,7 @@ h3 Now Lets Import into Tumblr
     - each post in wordpress.channel.item
       if (post["wp:post_type"] == "post")
         if ( typeof(post.title) == "string" )
-          input(id = "blogpost_#{post['wp:post_id']}", type = "checkbox", value="#{post['wp:post_id']}", name = "selectedImports", checked = "checked")
+          input(id = "blogpost_#{post['wp:post_id']}", type = "checkbox", value="#{post['wp:post_id']}", name = "selectedImports")
           label(for = "blogpost_#{post['wp:post_id']}")= post.title
           br
     input(type = "submit")

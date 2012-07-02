@@ -31,7 +31,6 @@ passport.use new TumblrStrategy(tumblrOptions , (token, tokenSecret, profile, do
     done null, profile
 )
 
-
 ## ROUTING
 webServer.get '/', (req, res) ->
   res.render 'index', user: req.user
