@@ -1,5 +1,7 @@
-* upload all img src tags to S3
-
+TODO:
+  * backdate posts
+  * add post tags
+  * make s3 assests public
 
 touch keys.js
 
