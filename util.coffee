@@ -90,7 +90,7 @@ uploadToS3 = (data, filename, originalName, cb) ->
               secretAccessKey: s3Keys.secret_access_key
               region: amazon.US_EAST_1
   s3.PutObject
-    BucketName: 'wordpress-to-tumblr'
+    BucketName: s3.bucket
     ObjectName: filename
     ContentLength: new Buffer(data, 'binary').length
     Body: new Buffer(data, 'binary')
