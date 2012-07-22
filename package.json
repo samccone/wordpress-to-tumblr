@@ -10,9 +10,9 @@
     "passport-tumblr": "0.1.2",
     "xml2js": "0.1.14",
     "oauth": "latest",
-    "cherrio": "latest",
+    "cheerio": "latest",
     "request": "latest",
-    "awssum": "latest"
+    "awssum": "git://github.com/appsattic/node-awssum.git"
   },
   "devDependencies": {},
   "optionalDependencies": {},
