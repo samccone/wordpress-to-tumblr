@@ -4,3 +4,4 @@ uploads/*
 .DS_Store
 server.js
 util.js
+npm-debug.log
